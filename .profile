@@ -20,8 +20,6 @@ alias mkdir='mkdir -p'
 alias du='du -kh'
 alias df='df -kTh'
 
-
-
 alias more='less'
 
-
+alias ruby='ruby1.9'
