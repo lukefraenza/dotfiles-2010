@@ -1,4 +1,5 @@
 set nocompatible
+syntax on
 set autoindent
 set smartindent
 set tabstop=4
@@ -6,14 +7,12 @@ set shiftwidth=4
 set showmatch
 set number
 set showcmd
-
-
+set backspace=2		" more powerful backspacing
+set ai              " auto indenting
 " Sets how many lines of history VIM has to remember
 set history=300
-
 " Set to auto read when a file is changed from the outside
 set autoread
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -49,6 +48,7 @@ set noerrorbells
 set novisualbell
 set t_vb=
 
+filetype plugin on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -88,7 +88,6 @@ set ai "Auto indent
 set si "Smart indet
 set wrap "Wrap lines
 
-
 """"""""""""""""""""""""""""""
 " => Statusline
 """"""""""""""""""""""""""""""
@@ -118,3 +117,11 @@ map <leader>p :cp<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
+
+
+
+" Don't write backup file if vim is being called by "crontab -e"
+au BufWrite /private/tmp/crontab.* set nowritebackup
+" Don't write backup file if vim is being called by "chpass"
+au BufWrite /private/etc/pw.* set nowritebackup
